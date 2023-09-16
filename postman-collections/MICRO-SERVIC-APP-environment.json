@@ -1,0 +1,21 @@
+{
+	"id": "eb4cfc4a-face-402d-9c65-5f3df12d1454",
+	"name": "MICRO-SERVIC-APP",
+	"values": [
+		{
+			"key": "AUTH_SERVICE_URL",
+			"value": "http://192.168.49.2:32001",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "AUTH_SERVICE_TOKEN",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoiYWtpbGFuLjQ2OEBnbWFpbC5jb20iLCJleHAiOjE2OTQ4Mzg5Nzh9.amc9tVr-E1Bru-uH5DJg6JLaQztxE_aePQeiDz1YkvY",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2023-09-16T07:31:31.443Z",
+	"_postman_exported_using": "Postman/10.12.13"
+}

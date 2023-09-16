@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: auth-dep
+  name: auth-dep
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: auth-dep
+  template:
+    metadata:
+      labels:
+        app: auth-dep
+    spec:
+      containers:
+      - image: akilan/ms-flask-auth
+        name: ms-flask-auth
+        ports:
+        - containerPort: 5000
+        envFrom:
+        - configMapRef:
+            name: cm-auth-env
+        - secretRef:
+            name: secret-auth-env
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 3
+          periodSeconds: 15

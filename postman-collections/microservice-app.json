@@ -1,0 +1,74 @@
+{
+	"info": {
+		"_postman_id": "b7a8195a-e757-4d32-8473-5b7f7037a017",
+		"name": "microservice-app",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4693456"
+	},
+	"item": [
+		{
+			"name": "01-flask-auth",
+			"item": [
+				{
+					"name": "01-get-token",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "akilan",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "akilan.468@gmail.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{AUTH_SERVICE_URL}}/login",
+							"host": [
+								"{{AUTH_SERVICE_URL}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "02-validate-token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{AUTH_SERVICE_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{AUTH_SERVICE_URL}}/validate",
+							"host": [
+								"{{AUTH_SERVICE_URL}}"
+							],
+							"path": [
+								"validate"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

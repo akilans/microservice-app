@@ -15,6 +15,14 @@ app.config["MYSQL_PORT"] = os.environ.get("MYSQL_PORT")
 
 mysql = MySQL(app)
 
+# Health check login
+@app.route("/health")
+def health():
+    '''
+    Router for checking helath
+    '''
+    return "healthy"
+
 # login route
 @app.route("/login", methods=["POST"])
 def login():
