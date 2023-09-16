@@ -4,8 +4,8 @@
 
 ### Architecture
 
-![MIcroservice - Architecture](https://github.com/akilans/microservice-all/blob/main/images/app-architecture.png?raw=true)
+![MIcroservice - Architecture](https://github.com/akilans/microservice-app/blob/main/images/app-architecture.png?raw=true)
 
 ### Services
 
-- [Auth Service - Python Flask, MySQL](https://github.com/akilans/microservice-all/tree/main/flask-auth)
+- [Auth Service - Python Flask, MySQL](https://github.com/akilans/microservice-app/tree/main/flask-auth)
