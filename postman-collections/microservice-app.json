@@ -69,6 +69,70 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "02-flask-gateway",
+			"item": [
+				{
+					"name": "01-get-token",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "akilan",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "akilan.468@gmail.com",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{GW_SERVICE_URL}}/login",
+							"host": [
+								"{{GW_SERVICE_URL}}"
+							],
+							"path": [
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "02-upload",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{GW_SERVICE_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{GW_SERVICE_URL}}/upload",
+							"host": [
+								"{{GW_SERVICE_URL}}"
+							],
+							"path": [
+								"upload"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
