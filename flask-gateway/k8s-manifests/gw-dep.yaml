@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: gw-dep
+  name: gw-dep
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: gw-dep
+  template:
+    metadata:
+      labels:
+        app: gw-dep
+    spec:
+      containers:
+      - image: akilan/ms-flask-gateway
+        name: ms-flask-gw
+        ports:
+        - containerPort: 6000
+        envFrom:
+        - configMapRef:
+            name: cm-gw-env
+        - secretRef:
+            name: secret-gw-env
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 6000
+          initialDelaySeconds: 3
+          periodSeconds: 3
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 6000
+          initialDelaySeconds: 3
+          periodSeconds: 15

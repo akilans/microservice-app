@@ -79,6 +79,13 @@ def download():
         else:
             return "You are not authorized to upload a file", 401
         
+# Health check login
+@app.route("/health")
+def health():
+    '''
+    Router for checking helath
+    '''
+    return "healthy"
 
 # Call main function
 if __name__ == "__main__":
