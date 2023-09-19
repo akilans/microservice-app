@@ -120,6 +120,21 @@
 						},
 						"method": "POST",
 						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "akilan",
+									"type": "text"
+								},
+								{
+									"key": "file1",
+									"type": "file",
+									"src": "/home/akilan/Videos/akit-ops-2023-05-01_21.43.53.mp4"
+								}
+							]
+						},
 						"url": {
 							"raw": "{{GW_SERVICE_URL}}/upload",
 							"host": [
@@ -127,6 +142,33 @@
 							],
 							"path": [
 								"upload"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "03-download",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{GW_SERVICE_TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{GW_SERVICE_URL}}/download",
+							"host": [
+								"{{GW_SERVICE_URL}}"
+							],
+							"path": [
+								"download"
 							]
 						}
 					},

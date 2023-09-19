@@ -33,6 +33,8 @@ def upload_publish(f,fs,username):
 
     # publish message to rabbitmq
     try:
+        # create queue if needed
+        channel.queue_declare("video")
         channel.basic_publish(
             exchange="",
             routing_key="video",
@@ -44,4 +46,4 @@ def upload_publish(f,fs,username):
     except Exception as err:
         print(err)
         fs.delete(video_id)
-        return "internal server errorw while publishing message",500
+        return "internal server error while publishing message",500
