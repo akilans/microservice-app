@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: converter-dep
+  name: converter-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: converter-dep
+  template:
+    metadata:
+      labels:
+        app: converter-dep
+    spec:
+      containers:
+      - image: akilan/ms-converter
+        name: ms-converter
+        envFrom:
+        - configMapRef:
+            name: cm-gw-env
+        - secretRef:
+            name: secret-gw-env

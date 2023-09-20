@@ -28,8 +28,8 @@ def start(message):
         #close tf file so it will cleanup
         tf.close()
 
-        mp3_file_path = os.pardir.join(tempfile.gettempdir,f"{video_id}.mp3")
-        mp3_file.write_audiofile()
+        mp3_file_path = os.path.join(tempfile.gettempdir(),f"{video_id}.mp3")
+        mp3_file.write_audiofile(mp3_file_path)
 
         # store it mongodb
         with open(mp3_file_path,'rb') as f:

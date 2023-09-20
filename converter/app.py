@@ -14,15 +14,16 @@ channel = connection.channel()
 
 # callback function to consume message details
 def callback(ch, method, properties, body):
+    print(f"Consuming message {json.loads(body)}")
     # read message
     message = json.loads(body)
     mp3_id, err = to_mp3.start(message)
     
     if err is None:
-        print("Audio saved n DB successfully...")
+        print("Audio saved to DB successfully...")
         print("Time to publish message")
 
-        message["mp3_id"] = mp3_id
+        message["mp3_id"] = str(mp3_id)
             # publish message to rabbitmq
         try:
             # create queue if needed
