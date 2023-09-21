@@ -5,7 +5,7 @@ metadata:
     app: auth-dep
   name: auth-dep
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: auth-dep

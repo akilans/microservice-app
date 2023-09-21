@@ -5,7 +5,7 @@ metadata:
     app: gw-dep
   name: gw-dep
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: gw-dep
@@ -29,7 +29,7 @@ spec:
             path: /health
             port: 6000
           initialDelaySeconds: 3
-          periodSeconds: 3
+          periodSeconds: 60
         readinessProbe:
           httpGet:
             path: /health

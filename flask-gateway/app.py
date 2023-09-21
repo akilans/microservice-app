@@ -1,8 +1,9 @@
-from flask import Flask, request
+from flask import Flask, request, send_file
 from auth import access
 import json, gridfs, pika, os
 from flask_pymongo import PyMongo
 from storage import util
+from bson.objectid import ObjectId
 
 app = Flask(__name__)
 
@@ -75,7 +76,13 @@ def download():
     else:
         user_details_json = json.loads(user_details)
         if user_details_json["admin"]:
-            return "Download success!"
+            mp3_objectid = request.args.get('fid')
+
+            if not mp3_objectid:
+                return "fid is required", 400
+            else:
+                out = fs_mp3s.get(ObjectId(mp3_objectid))
+                return send_file(out,download_name=f"{mp3_objectid}.mp3")
         else:
             return "You are not authorized to upload a file", 401
         

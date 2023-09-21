@@ -163,12 +163,18 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{GW_SERVICE_URL}}/download",
+							"raw": "{{GW_SERVICE_URL}}/download?fid=650a450689e29ac0d0387777",
 							"host": [
 								"{{GW_SERVICE_URL}}"
 							],
 							"path": [
 								"download"
+							],
+							"query": [
+								{
+									"key": "fid",
+									"value": "650a450689e29ac0d0387777"
+								}
 							]
 						}
 					},
