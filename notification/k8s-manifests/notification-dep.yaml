@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: notification-dep
+  name: notification-dep
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notification-dep
+  template:
+    metadata:
+      labels:
+        app: notification-dep
+    spec:
+      containers:
+      - image: akilan/ms-notification
+        name: ms-notification
+        envFrom:
+        - configMapRef:
+            name: cm-gw-env
+        - secretRef:
+            name: secret-gw-env
